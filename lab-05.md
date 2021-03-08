@@ -115,6 +115,14 @@ nobel_living_science %>%
     `"USA"` if the laureate is born in the US, and `"Other"` otherwise.
     How many of the winners are born in the US?
 
+``` r
+nobel_living_science <- nobel_living_science %>%
+    mutate(
+      born_country_us = if_else(born_country == "USA", "USA", "Other"))
+```
+
+Answer:105
+
 Knit, *commit, and push your changes to GitHub with an appropriate
 commit message. Make sure to commit and push all changed files so that
 your Git pane is cleared up afterwards.d*
@@ -130,6 +138,16 @@ your Git pane is cleared up afterwards.d*
         laureate won the award in the US or not.
     -   Each bar should have segments for whether the laureate was born
         in the US or not.
+
+``` r
+nobel_living_science <- nobel_living_science %>% mutate( born_country_us = if_else(born_country == "USA", "USA", "Other"))
+nobel_living_science %>%ggplot(aes(x = country_us,y=born_country_us, fill = category)) + geom_bar(stat = "identity", position = "dodge", orientation="horizontal")
+```
+
+![](lab-05_files/figure-gfm/unnamed-chunk-8-1.png)<!-- --> Answer: yes ,
+because in buzzfeed we analyzing the data to search for more
+understanding the data and get information form it we go deep and deep
+and make a lot of filterations to understanding the data.
 
 Knit, *commit, and push your changes to GitHub with an appropriate
 commit message. Make sure to commit and push all changed files so that
